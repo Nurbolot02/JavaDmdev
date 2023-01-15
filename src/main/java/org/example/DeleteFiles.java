@@ -1,6 +1,8 @@
 package org.example;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class DeleteFiles {
@@ -19,19 +21,14 @@ public class DeleteFiles {
         File[] files = file.listFiles();
 
         assert files != null;
-        int i = 0;
-
         for (File file1: files){
-            if (i >= 3){
-                break;
-            }
             for (File file2: Objects.requireNonNull(file1.listFiles())){
                 if (file2.getAbsolutePath().endsWith(".mp4") || file2.getAbsolutePath().endsWith(".srt")){
                     file2.delete();
                 }
             }
-            i++;
         }
+        System.out.printf("all video(.mp4) and subtitles(.srt) were deleted from %s", path);
         return true;
     }
 
