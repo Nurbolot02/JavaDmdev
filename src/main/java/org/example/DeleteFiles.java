@@ -7,10 +7,12 @@ import java.util.Objects;
 
 public class DeleteFiles {
     public static void main(String[] args) {
-        String path = "D:\\IELTS Пошаговая инструкция  ОСВОЕНИЕ ВСЕХ НАВЫКОВ 7";
-        deleteEmptyMp4(path);
-
-        System.out.println();
+        int[] array = new int[]{1,2,3,4,5,6,7};
+        Arrays.stream(array)
+                .peek(System.out::print)
+                .filter(i -> i > 5)
+                .peek(System.out::print)
+                .findFirst();
     }
 
     private static boolean deleteEmptyMp4(String path){
