@@ -13,9 +13,13 @@ public class DeleteFiles {
                 .filter(i -> i > 5)
                 .peek(System.out::print)
                 .findFirst();
+
+        String path = "D:\\Kafka\\Apache Kafka Series Learn Apache Kafka for Beginners v3";
+
+        deleteEmptyMp4AndSrt(path);
     }
 
-    private static boolean deleteEmptyMp4(String path){
+    private static boolean deleteEmptyMp4AndSrt(String path){
 //        "D:\\Spring Boot Microservices и Spring Cloud"
 
         File file = new File(path);
@@ -23,12 +27,17 @@ public class DeleteFiles {
         File[] files = file.listFiles();
 
         assert files != null;
+//        int i = 0;
         for (File file1: files){
+//            if (i >= 8) {
+//                break;
+//            }
             for (File file2: Objects.requireNonNull(file1.listFiles())){
                 if (file2.getAbsolutePath().endsWith(".mp4") || file2.getAbsolutePath().endsWith(".srt")){
                     file2.delete();
                 }
             }
+//            i++;
         }
         System.out.printf("all video(.mp4) and subtitles(.srt) were deleted from %s", path);
         return true;
