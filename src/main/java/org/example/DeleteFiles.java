@@ -14,7 +14,7 @@ public class DeleteFiles {
                 .peek(System.out::print)
                 .findFirst();
 
-        String path = "D:\\Kafka\\Apache Kafka Series Learn Apache Kafka for Beginners v3";
+        String path = "D:\\Docker and Kubernetes The Complete Guide 2018";
 
         deleteEmptyMp4AndSrt(path);
     }
